@@ -179,7 +179,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  capybara (= 1.1.2)
+  capybara
   childprocess
   coffee-rails (~> 3.2.1)
   guard-rspec

@@ -21,6 +21,7 @@ group :assets do
 end
 
 group :development, :test do
+  gem 'capybara'
 	gem 'rspec-rails'
 	gem 'sqlite3'
 	gem 'guard-rspec'
@@ -34,7 +35,6 @@ group :production do
 end
 
 group :test do
-  gem 'capybara', '1.1.2'
   gem 'rb-inotify'
   gem 'libnotify', '0.5.9'
 end 
