@@ -1,6 +1,10 @@
 require 'spec_helper'
 
 describe Person do
+
+	let(:person) do
+		Person.new(first_name: "Akash", last_name: "Kh")
+	end
   
   it 'is valid' do
   	person = Person.new(first_name: 'Akash', last_name: 'Kh')
@@ -8,12 +12,12 @@ describe Person do
   end
 
   it 'is invalid without first name' do
-  	person = Person.new(first_name: nil)
+  	person.first_name = nil
   	expect(person).to be_invalid
 	end
 
 	it 'is invalid without last name' do
-		person = Person.new(first_name: 'Akash', last_name: nil)
+		person.last_name = nil
   	expect(person).to be_invalid
   end
 
