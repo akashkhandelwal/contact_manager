@@ -157,10 +157,10 @@ describe PhoneNumbersController do
       }.to change(PhoneNumber, :count).by(-1)
     end
 
-    # it "redirects to the phone_number's person" do
-    #   phone_number = PhoneNumber.create! valid_attributes
-    #   delete :destroy, {:id => phone_number.to_param}, valid_session
-    #   expect(response).to redirect_to(bob)
-    # end
+    it "redirects to the phone_number's person" do
+      phone_number = PhoneNumber.create! valid_attributes
+      delete :destroy, {:id => phone_number.to_param}, valid_session
+      expect(response).to redirect_to(bob)
+    end
   end
 end

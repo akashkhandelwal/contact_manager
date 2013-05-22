@@ -61,5 +61,6 @@ describe 'the person view', type: :feature do
 		page.click_link('Delete')
 		expect(current_path).to eq(person_path(person))
 		expect(page).to_not have_content(old_number)
+		expect(page).to_not have_link("Delete", href: "/phone_numbers/#{phone.id}", method: :delete)
 	end
 end 
