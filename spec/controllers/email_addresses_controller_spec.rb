@@ -24,7 +24,7 @@ describe EmailAddressesController do
   # EmailAddress. As you add validations to EmailAddress, be sure to
   # adjust the attributes here as well.
 
-  let(:valid_attributes) { { "address" => "MyString" } }
+  let(:valid_attributes) { { "address" => "MyString" , contact_id: 1, contact_type: 'Person' } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -66,7 +66,7 @@ describe EmailAddressesController do
     describe "with valid params" do
 
       let(:person) { Person.create(first_name: 'Akash', last_name: 'Khandelwal') }
-      let(:valid_attributes) { {address: 'akash@jombay.com', person_id: person.id} }
+      let(:valid_attributes) { {address: 'akash@jombay.com', contact_id: person.id, contact_type: 'Person'} }
 
       it "creates a new EmailAddress" do
         expect {
@@ -108,7 +108,7 @@ describe EmailAddressesController do
     describe "with valid params" do
 
       let(:person) { Person.create(first_name: 'Akash', last_name: 'Khandelwal') }
-      let(:valid_attributes) { {address: 'akash@jombay.com', person_id: person.id} }
+      let(:valid_attributes) { {address: 'akash@jombay.com', contact_id: person.id, contact_type: 'Person'} }
 
       it "updates the requested email_address" do
         email_address = EmailAddress.create! valid_attributes
@@ -155,7 +155,7 @@ describe EmailAddressesController do
   describe "DELETE destroy" do
 
     let(:person) { Person.create(first_name: 'Akash', last_name: 'Khandelwal') }
-    let(:valid_attributes) { {address: 'akash@jombay.com', person_id: person.id} }
+    let(:valid_attributes) { {address: 'akash@jombay.com', contact_id: person.id, contact_type: 'Person'} }
 
     it "destroys the requested email_address" do
       email_address = EmailAddress.create! valid_attributes

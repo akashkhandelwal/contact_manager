@@ -85,7 +85,7 @@ describe "" do
 		end
 
 		it 'has add email address link' do
-			expect(page).to have_link('Add email id', href: new_email_address_path(person_id: person.id))
+			expect(page).to have_link('Add email id', href: new_email_address_path(contact_id: person.id, contact_type: 'Person'))
 		end
 
 		it 'adds a new email address' do
