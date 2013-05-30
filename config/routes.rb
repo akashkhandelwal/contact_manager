@@ -2,7 +2,7 @@ ContactManager::Application.routes.draw do
   resources :companies
 
 
-  resources :email_addresses
+  resources :email_addresses, except: [:show, :index]
 
 
   resources :phone_numbers, except: [:show, :index]
