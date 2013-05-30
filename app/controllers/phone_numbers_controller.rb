@@ -1,4 +1,6 @@
 class PhoneNumbersController < ApplicationController
+
+  before_filter :lookup_phone_number, except: [:new, :create]
  
   # GET /phone_numbers/new
   # GET /phone_numbers/new.json
@@ -13,7 +15,7 @@ class PhoneNumbersController < ApplicationController
 
   # GET /phone_numbers/1/edit
   def edit
-    @phone_number = PhoneNumber.find(params[:id])
+    
   end
 
   # POST /phone_numbers
@@ -35,7 +37,7 @@ class PhoneNumbersController < ApplicationController
   # PUT /phone_numbers/1
   # PUT /phone_numbers/1.json
   def update
-    @phone_number = PhoneNumber.find(params[:id])
+    
 
     respond_to do |format|
       if @phone_number.update_attributes(params[:phone_number])
@@ -51,12 +53,18 @@ class PhoneNumbersController < ApplicationController
   # DELETE /phone_numbers/1
   # DELETE /phone_numbers/1.json
   def destroy
-    @phone_number = PhoneNumber.find(params[:id])
+    
     @phone_number.destroy
 
     respond_to do |format|
       format.html { redirect_to @phone_number.contact }
       format.json { head :no_content }
     end
+  end
+
+  private
+
+  def lookup_phone_number
+    @phone_number = PhoneNumber.find(params[:id])
   end
 end
