@@ -1,6 +1,6 @@
 class CompaniesController < ApplicationController
 
-  before_filter :lookup_company, only: [:edit, :show, :update, :destroy]
+  before_filter :find_resource, only: [:edit, :show, :update, :destroy]
 
   # GET /companies
   # GET /companies.json
@@ -76,9 +76,5 @@ class CompaniesController < ApplicationController
       format.html { redirect_to companies_url }
       format.json { head :no_content }
     end
-  end
-
-  def lookup_company
-    @company = Company.find(params[:id])
   end
 end

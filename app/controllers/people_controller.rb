@@ -1,6 +1,6 @@
 class PeopleController < ApplicationController
   
-  before_filter :lookup_person, only: [:edit, :show, :update, :destroy]
+  before_filter :find_resource, only: [:edit, :show, :update, :destroy]
 
   # GET /people
   # GET /people.json
@@ -78,10 +78,4 @@ class PeopleController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-  private
-  
-    def lookup_person
-      @person = Person.find(params[:id])
-    end
 end

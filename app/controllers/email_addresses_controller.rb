@@ -1,6 +1,6 @@
 class EmailAddressesController < ApplicationController
 
-  before_filter :lookup_email_address, except: [:new, :create]
+  before_filter :find_resource, except: [:new, :create]
 
   # GET /email_addresses/new
   # GET /email_addresses/new.json
@@ -58,10 +58,4 @@ class EmailAddressesController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-  private
-  
-    def lookup_email_address
-      @email_address = EmailAddress.find(params[:id])
-    end
 end

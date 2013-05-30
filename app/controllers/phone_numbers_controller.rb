@@ -1,6 +1,6 @@
 class PhoneNumbersController < ApplicationController
 
-  before_filter :lookup_phone_number, except: [:new, :create]
+  before_filter :find_resource, except: [:new, :create]
  
   # GET /phone_numbers/new
   # GET /phone_numbers/new.json
@@ -60,11 +60,5 @@ class PhoneNumbersController < ApplicationController
       format.html { redirect_to @phone_number.contact }
       format.json { head :no_content }
     end
-  end
-
-  private
-
-  def lookup_phone_number
-    @phone_number = PhoneNumber.find(params[:id])
   end
 end
