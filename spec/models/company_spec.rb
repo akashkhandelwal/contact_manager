@@ -30,4 +30,8 @@ describe Company do
     company.email_addresses.build(address: 'info@jombay.com')
     expect(company.email_addresses.map(&:address)).to eq(['info@jombay.com'])
   end
+
+  it "convert to a string with last name, first name" do
+    expect(company.to_s).to eq "Jombay"
+  end
 end
