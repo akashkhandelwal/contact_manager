@@ -6,14 +6,8 @@
 </p>
 
 <ul>
-	<% @company.phone_numbers.each do |phone| %>
-		<li><%= phone.number %> <%= link_to('Edit', edit_phone_number_path(phone)) %> | 
-			<%= link_to 'Delete', phone, method: :delete, data: { confirm: 'Are you sure?' } %></li>
-	<% end %>
-	<% @company.email_addresses.each do |email| %>
-		<li><%= email.address %> <%= link_to('Edit', edit_email_address_path(email)) %> | 
-			<%= link_to 'Delete', email, method: :delete, data: { confirm: 'Are you sure?' } %></li>
-	<% end %>
+	<%= render 'phone_numbers/phone_numbers', phone_numbers: @company.phone_numbers %>
+	<%= render 'email_addresses/email_addresses', email_addresses: @company.email_addresses %>
 </ul>
 
 <%= link_to 'Add email id', new_email_address_path(contact_id: @company.id, contact_type: 'Company') %> |
