@@ -1,3 +1,7 @@
+require 'spec_helper'
+require 'capybara/rails'
+require 'capybara/rspec'
+
 describe '' do
 	describe 'the contact view', type: :feature do
 
