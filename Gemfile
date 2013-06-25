@@ -39,8 +39,10 @@ group :test do
   gem 'libnotify', '0.5.9'
 end 
 
+gem 'haml'
 gem 'unicorn'
 gem 'jquery-rails'
+gem 'hpricot'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
