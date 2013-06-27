@@ -5,11 +5,13 @@ require 'capybara/rspec'
 describe '' do
 	describe 'the contact view', type: :feature do
 
-		let(:company) { Company.create(name: "Akash") }
+		let(:company) { Fabricate :company }
+		let(:user) { company.user }
 
 		before(:each) do
 			company.phone_numbers.create(number: "555-1234")
 			company.phone_numbers.create(number: "555-9786")
+			login_as user
 			visit company_path(company)
 		end
 
@@ -69,11 +71,13 @@ describe '' do
 	describe "" do
 		describe "the email view" do
 			
-			let(:company) { Company.create(name: "Akash") }
+			let(:company) { Fabricate :company }
+			let(:user) { company.user }
 
 			before(:each) do
 				company.email_addresses.create(address: "akash@jombay.com")
 				company.email_addresses.create(address: "akash1@jombay.com")
+				login_as user
 				visit company_path(company)
 			end
 
