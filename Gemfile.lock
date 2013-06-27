@@ -58,6 +58,7 @@ GEM
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    fabrication (2.7.2)
     ffi (1.8.1)
     formatador (0.2.4)
     guard (1.8.0)
@@ -203,6 +204,7 @@ DEPENDENCIES
   childprocess
   coffee-rails (~> 3.2.1)
   debugger
+  fabrication
   guard-rspec
   guard-spork
   haml
