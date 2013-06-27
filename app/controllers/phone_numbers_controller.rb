@@ -37,7 +37,7 @@ class PhoneNumbersController < ApplicationController
   # PUT /phone_numbers/1
   # PUT /phone_numbers/1.json
   def update
-    
+
 
     respond_to do |format|
       if @phone_number.update_attributes(params[:phone_number])

@@ -26,7 +26,6 @@ class CompaniesController < ApplicationController
   # GET /companies/new.json
   def new
     @company = Company.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @company }
