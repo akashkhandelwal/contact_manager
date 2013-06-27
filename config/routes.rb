@@ -10,6 +10,13 @@ ContactManager::Application.routes.draw do
 
   resources :people
 
+  get '/auth/:provider/callback' => 'sessions#create'
+
+  resources :sessions, only: [:create]
+
+  match '/login' => redirect("/auth/twitter"), as: :login
+
+  delete "/logout" => "sessions#destroy", as: :logout
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -60,7 +67,7 @@ ContactManager::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'site#index'
 
   # See how all your routes lay out with "rake routes"
 
