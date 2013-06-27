@@ -4,8 +4,13 @@ class PeopleController < ApplicationController
 
   # GET /people
   # GET /people.json
+
+  def lookup_person
+    @person = current_user.people.find(params[:id])
+  end
+
   def index
-    @people = Person.all
+    @people = current_user.people
 
     respond_to do |format|
       format.html # index.html.erb
