@@ -12,7 +12,7 @@ ContactManager::Application.routes.draw do
 
   get '/auth/:provider/callback' => 'sessions#create'
 
-  resources :sessions, only: [:create]
+  resources :sessions, only: [:create, :destroy]
 
   match '/login' => redirect("/auth/twitter"), as: :login
 

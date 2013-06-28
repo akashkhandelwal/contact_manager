@@ -39,6 +39,7 @@ describe SessionsController do
 		  expect(controller.current_user.id).to eq(user.id)
 		end
 
+
 		it "redirects to the companies page" do
 		  @request.env["omniauth.auth"] = {
 		    'provider' => 'twitter',
