@@ -5,10 +5,6 @@ class PeopleController < ApplicationController
   # GET /people
   # GET /people.json
 
-  def lookup_person
-    @person = current_user.people.find(params[:id])
-  end
-
   def index
     @people = current_user.people
 
@@ -47,6 +43,7 @@ class PeopleController < ApplicationController
   # POST /people.json
   def create
     @person = Person.new(params[:person])
+    @person.user = current_user
 
     respond_to do |format|
       if @person.save
